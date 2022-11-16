@@ -1,0 +1,83 @@
+@import 'reset';
+
+body {
+    background-color: cadetblue;
+}
+
+.wrapper {
+    position: relative;
+    width: 800px;
+    height: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+}
+
+.card-holder {
+    position: relative;
+    width: 25%;
+    height: 400px;
+    transition: all ease-in-out 0.4s;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+
+//     .front,
+// .back {
+//     position: absolute;
+//     // top: 0;
+//     // left: 0;
+//     // right: 0;
+//     // bottom: 0;
+//     width: 100%;
+//     height: 100%;
+//     backface-visibility: hidden;
+//     transition: all ease-in-out 0.4s;
+// }
+
+// .front {
+//     transform: rotateY(180deg);
+
+//     &:hover {
+//         animation-play-state: running;
+//     }
+// }
+
+// .back {
+//     transform: rotateY(0deg);
+//     background-color: aqua;
+// }
+}
+
+.front,
+.back {
+    position: absolute;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: all ease-in-out 0.4s linear;
+}
+
+.front {
+    transform: perspective(600px) rotateY(0deg);
+
+    &:hover {
+        animation-play-state: running;
+    }
+}
+
+.back {
+    transform:perspective(600px) rotateY(180deg);
+    background-color: rgb(171, 205, 34);
+}
+
+.card-holder:hover > .front {
+    transform: rotateY(-180deg);
+}
+.card-holder:hover > .back {
+    transform: rotateY(0deg);
+}
